@@ -18,7 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
-
 Route::get('/admin_test', ['as' => 'admin', 'uses' => 'AdminController@admin_test']);
+
+
+
+// 前台
+
+Route::get('/', ['as' => 'index', 'uses' => 'PostsController@index']);
