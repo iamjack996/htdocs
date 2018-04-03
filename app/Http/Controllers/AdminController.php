@@ -29,4 +29,13 @@ class AdminController extends Controller
            'description' => '管理工作後台描述'
         ]);
     }
+
+
+    public function admin_test()
+    {
+        return view('admin_template', [
+           'title' => '後台標題',
+           'description' => '管理工作後台描述'
+        ]);
+    }
 }

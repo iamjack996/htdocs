@@ -1,4 +1,6 @@
-@extends('admin.layouts.app')
+@include('admin.layouts.header')
+@include('admin.layouts.sidebar')
+@include('admin.layouts.content')
 
 
 @section('content_admin')
@@ -10,12 +12,18 @@
 @endsection
 
 
+
+
+@include('admin.layouts.footer')
+
 @section('script_admin')
+
 <script type="text/javascript">
     $(document).ready(function(){
         $("p").click(function(){
-            $(this).hide();
+            $(this).hide();   // test javascript
         });
     });
 </script>
+
 @endsection
