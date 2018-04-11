@@ -18,11 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', ['as' => 'admin', 'uses' => 'AdminController@index']);
-Route::get('/admin_test', ['as' => 'admin', 'uses' => 'AdminController@admin_test']);
-
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin_test', 'AdminController@admin_test')->name('admin_test');
+Route::get('/category_setting', 'CategoryController@category_setting')->name('category_setting');
+Route::post('/add_category', 'CategoryController@store')->name('add_category');
 
 
 // 前台
-
 Route::get('/', ['as' => 'index', 'uses' => 'PostsController@index']);

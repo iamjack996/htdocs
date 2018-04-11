@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -29,7 +30,6 @@ class AdminController extends Controller
            'description' => '管理工作後台描述'
         ]);
     }
-
 
     public function admin_test()
     {

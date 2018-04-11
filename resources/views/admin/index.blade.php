@@ -1,7 +1,4 @@
-@include('admin.layouts.header')
-@include('admin.layouts.sidebar')
-@include('admin.layouts.content')
-
+@extends('admin.layouts.content')
 
 @section('content_admin')
 
@@ -11,10 +8,6 @@
 
 @endsection
 
-
-
-
-@include('admin.layouts.footer')
 
 @section('script_admin')
 

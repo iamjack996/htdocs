@@ -10,7 +10,7 @@
         <img src="{{ asset("/bower_components/admin-lte/dist/img/user2-160x160.jpg") }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>Alexander Pierce</p>
+        <p>{{ Auth::user()->username }}</p>
         <!-- Status -->
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
@@ -32,7 +32,7 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">HEADER</li>
       <!-- Optionally, you can add icons to the links -->
-      <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+      <li class="active"><a href="/category_setting"><i class="fa fa-link"></i> <span>激活</span></a></li>
       <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
       <li class="treeview">
         <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -45,7 +45,31 @@
           <li><a href="#">Link in level 2</a></li>
         </ul>
       </li>
+
+      @forelse($menus as $menus)
+
+        @if(count($menus->menus_sub))
+        <li class="treeview">
+          <a href="/{{ $menus->url }}"><i class="fa fa-link"></i> <span>{{ $menus->title }}</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            @foreach($menus->menus_sub as $menus_sub)
+            <li><a href="/{{ $menus_sub->url }}">{{ $menus_sub->title }}</a></li>
+            @endforeach
+          </ul>
+        </li>
+        @else
+        <li><a href="/{{ $menus->url }}"><i class="fa fa-link"></i> <span>{{ $menus->title }}</span></a></li>
+        @endif
+
+      @empty
+        None
+      @endforelse
     </ul>
+
     <!-- /.sidebar-menu -->
   </section>
   <!-- /.sidebar -->
